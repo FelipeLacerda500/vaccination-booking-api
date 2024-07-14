@@ -4,7 +4,8 @@
   "description": "Vaccination Booking API is a service dedicated to vaccination scheduling, allowing the creation of appointments based on available dates and patient information. It offers features such as listing appointments and pagination of these results.",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "precommit-lint": "lint-staged"
   },
   "keywords": [],
   "author": "Felipe Lacerda Fernandes de Assis",
@@ -20,6 +21,7 @@
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prettier": "5.2.1",
+    "lint-staged": "15.2.7",
     "prettier": "3.3.3",
     "tsx": "4.16.2",
     "typescript": "5.5.3",
