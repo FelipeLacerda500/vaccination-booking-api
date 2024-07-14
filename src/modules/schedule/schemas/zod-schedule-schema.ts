@@ -64,4 +64,7 @@ export const scheduleBodySchema = z.object({
     )
     .transform((date) => dateHelper.convertToUtc(date))
     .optional(),
+  realized: z
+    .boolean({ message: 'A realização deve ser indicada como um booleano.' })
+    .optional(),
 });
