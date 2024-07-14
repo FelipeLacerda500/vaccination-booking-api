@@ -67,4 +67,19 @@ export const scheduleBodySchema = z.object({
   realized: z
     .boolean({ message: 'A realização deve ser indicada como um booleano.' })
     .optional(),
+  page: z
+    .string({ message: 'A página deve ser um número.' })
+    .refine(
+      (page) => {
+        const parsedPage = Number(page);
+        if (parsedPage <= 0 || !Number.isInteger(parsedPage)) {
+          return false;
+        }
+
+        return true;
+      },
+      { message: 'A página deve ser positiva e inteira.' },
+    )
+    .transform((page) => Number(page))
+    .optional(),
 });
