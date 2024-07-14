@@ -6,4 +6,8 @@ export const scheduleBodySchema = z.object({
     .string({ message: 'ID deve ser uma string.' })
     .uuid({ message: 'ID deve ser um UUID válido.' })
     .optional(),
+  patientName: z
+    .string({ message: 'O nome do paciente deve ser uma string.' })
+    .min(1)
+    .optional(),
 });
