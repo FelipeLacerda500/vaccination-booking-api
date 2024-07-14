@@ -1,5 +1,5 @@
 import { DayjsHelper } from '../helpers';
 
-export function factoryDayHelper() {
+export function factoryDateHelper() {
   return new DayjsHelper();
 }
