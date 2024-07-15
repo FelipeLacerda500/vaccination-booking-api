@@ -56,4 +56,16 @@ export class InMemoryScheduleRepository implements IScheduleRepository {
 
     return searchResult.slice((page - 1) * 20, page * 20);
   }
+
+  public async findById(id: string) {
+    const schedule = InMemoryScheduleRepository._schedules.find(
+      (item) => item.id === id,
+    );
+
+    if (!schedule) {
+      return null;
+    }
+
+    return schedule;
+  }
 }
