@@ -68,4 +68,14 @@ export class InMemoryScheduleRepository implements IScheduleRepository {
 
     return schedule;
   }
+
+  public async markAsRealized(id: string) {
+    const scheduleIndex = InMemoryScheduleRepository._schedules.findIndex(
+      (item) => item.id === id,
+    );
+
+    InMemoryScheduleRepository._schedules[scheduleIndex].realized = true;
+
+    return InMemoryScheduleRepository._schedules[scheduleIndex];
+  }
 }
