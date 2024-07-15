@@ -31,4 +31,29 @@ export class InMemoryScheduleRepository implements IScheduleRepository {
       page * 20,
     );
   }
+
+  public async findByDateOrName(
+    patient_name: string,
+    schedule_date: Date,
+    page: number,
+  ) {
+    let searchResult = InMemoryScheduleRepository._schedules;
+
+    if (schedule_date) {
+      searchResult = searchResult.filter(
+        (item) =>
+          item.schedule_date.getFullYear() === schedule_date.getFullYear() &&
+          item.schedule_date.getMonth() === schedule_date.getMonth() &&
+          item.schedule_date.getDate() === schedule_date.getDate(),
+      );
+    }
+
+    if (patient_name) {
+      searchResult = searchResult.filter((item) =>
+        item.patient_name.toLowerCase().includes(patient_name.toLowerCase()),
+      );
+    }
+
+    return searchResult.slice((page - 1) * 20, page * 20);
+  }
 }
