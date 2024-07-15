@@ -24,4 +24,11 @@ export class InMemoryScheduleRepository implements IScheduleRepository {
 
     return schedule;
   }
+
+  public async list(page: number) {
+    return InMemoryScheduleRepository._schedules.slice(
+      (page - 1) * 20,
+      page * 20,
+    );
+  }
 }
