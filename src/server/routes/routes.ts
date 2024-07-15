@@ -9,7 +9,7 @@ import {
 } from '@/modules/schedule/controllers';
 
 export async function appRoutes(app: FastifyInstance) {
-  app.post('/', createScheduleController);
+  app.post('/schedules', createScheduleController);
   app.get('/schedules', listSchedulesController);
   app.get('/schedules/search', fetchSchedulesController);
   app.patch('/schedules/confirm/:id', confirmScheduleController);
