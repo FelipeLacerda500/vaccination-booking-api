@@ -4,7 +4,7 @@
   "description": "Vaccination Booking API is a service dedicated to vaccination scheduling, allowing the creation of appointments based on available dates and patient information. It offers features such as listing appointments and pagination of these results.",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/server/server.ts",
     "prepare": "husky",
     "precommit-lint": "lint-staged"
   },
